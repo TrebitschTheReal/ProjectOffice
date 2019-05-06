@@ -14,10 +14,8 @@ namespace ProjectOffice
         {
             get
             {
-                return new Employee[5] {employee, employee, employee, employee, employee};
+                return new Employee[5] { employee, employee, employee, employee, employee };
             }
         }
-
-
     }
 }
