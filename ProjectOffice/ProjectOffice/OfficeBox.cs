@@ -10,11 +10,11 @@ namespace ProjectOffice
     {
         Employee employee = new Employee();
 
-        public Employee[] Employees
+        public Employee[,] Employees
         {
             get
             {
-                return new Employee[5] { employee, employee, employee, employee, employee };
+                return new Employee[4, 2] { { employee, employee }, { employee, employee }, { employee, employee }, { employee, employee } };
             }
         }
     }

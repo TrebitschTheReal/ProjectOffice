@@ -12,13 +12,10 @@ namespace ProjectOffice
         static void Main()
         {
             var office = new OfficeBox();
-            Console.WriteLine(office.Employees[0].Name);
-            Console.WriteLine(office.Employees[1].Name);
-            Console.WriteLine(office.Employees[0].Post);
-            Console.WriteLine(office.Employees[1].Post);
-
-
-
+            Console.WriteLine(office.Employees[0,0].Name);
+            Console.WriteLine(office.Employees[0,1].Name);
+            Console.WriteLine(office.Employees[0,0].Post);
+            Console.WriteLine(office.Employees[1,0].Post);
 
             Console.ReadKey();
 
