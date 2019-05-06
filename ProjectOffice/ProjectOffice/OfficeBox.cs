@@ -8,7 +8,7 @@ namespace ProjectOffice
 {
     class OfficeBox
     {
-        //Employee employee = new Employee();
+        //Employee employee = new Employee(); 
 
         public Employee[,] Employees
         {
