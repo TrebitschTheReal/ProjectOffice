@@ -35,4 +35,4 @@ PC.cs ->szintén zenészt
 OfficeBox.cs
 
 OfficeBox -> példányosítani egy pc és egy employee-t
-*/
+*/ 
