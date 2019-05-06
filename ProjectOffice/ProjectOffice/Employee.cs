@@ -52,7 +52,7 @@ namespace ProjectOffice
                 choosedName = maleNames[r.Next(0, maleNames.Length)];
                 return choosedName;
             }
-            choosedName = femaleNames[r.Next(0, femaleNames.Length + 1)];
+            choosedName = femaleNames[r.Next(0, femaleNames.Length)];
             return choosedName;
         }
         private string GeneratePost()

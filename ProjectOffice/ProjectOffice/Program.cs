@@ -29,7 +29,7 @@ Tömb mérete: 8x10
 Ember(neve, beosztása, teljesítménye, bérezése)
 Számítógép konfig(monitor gyártója és felbontása, processzor típusa és "ereje", memória típusa és "ereje")
 
-Employee.cs - > konstruktorban lefuttatunk egy függvényt ami beállítja random értékekre a tulajdonságot
+Employee.cs - > paraméterből kapjon értéket. A paraméter legyen egy változó ami véletlenszerűen generálja a paramétert így elég egy példányból is cucc
 PC.cs ->szintén zenészt
 
 OfficeBox.cs

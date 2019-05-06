@@ -8,14 +8,30 @@ namespace ProjectOffice
 {
     class OfficeBox
     {
-        Employee employee = new Employee();
+        //Employee employee = new Employee();
 
         public Employee[,] Employees
         {
             get
             {
-                return new Employee[4, 2] { { employee, employee }, { employee, employee }, { employee, employee }, { employee, employee } };
+                return GenerateEmployees();
             }
+        }
+
+        private Employee[,] GenerateEmployees()
+        {
+            var crew = new Employee[8,10];
+
+            for (int i = 0; i < crew.GetLength(0); i++)
+            {
+                for (int j = 0; j < crew.GetLength(1); j++)
+                {
+                    var worker = new Employee();
+                    crew[i, j] = worker;
+                }
+            }
+
+            return crew;
         }
     }
 }
