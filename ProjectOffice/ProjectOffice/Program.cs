@@ -23,13 +23,13 @@ namespace ProjectOffice
 }
 
 /*
- Tömb mérete: 8x10
+Tömb mérete: 8x10
 
 Ember(neve, beosztása, teljesítménye, bérezése)
 Számítógép konfig(monitor gyártója és felbontása, processzor típusa és "ereje", memória típusa és "ereje")
 
 Employee.cs - > konstruktorban lefuttatunk egy függvényt ami beállítja random értékekre a tulajdonságot
-PC.cs ->szintén zenész
+PC.cs ->szintén zenészt
 
 OfficeBox.cs
 
