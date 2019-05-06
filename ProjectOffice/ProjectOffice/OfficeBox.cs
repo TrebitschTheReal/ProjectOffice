@@ -10,7 +10,7 @@ namespace ProjectOffice
     {
         Employee employee = new Employee();
 
-        public OfficeBox[] Employees
+        public Employee[] Employees
         {
             get
             {
