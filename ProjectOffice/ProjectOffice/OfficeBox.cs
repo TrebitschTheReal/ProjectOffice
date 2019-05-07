@@ -70,4 +70,4 @@ namespace ProjectOffice
             return wage;
         }
     }
-} 
+}
