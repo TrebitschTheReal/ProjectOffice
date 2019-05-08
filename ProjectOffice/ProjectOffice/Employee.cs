@@ -8,6 +8,7 @@ namespace ProjectOffice
 {
     class Employee : PC
     {
+
         private string employeeName = "";
         private int employeeSex = 0;
         private string post = "";
@@ -20,7 +21,7 @@ namespace ProjectOffice
             this.employeeName = employeeName;
             this.post = post;
             this.wage = wage;
-            this.productivity = wage / 18;
+            this.productivity = wage / 18000;
         }
         public string Name
         {
@@ -39,7 +40,36 @@ namespace ProjectOffice
             get { return productivity; }
         }
 
+        protected string GenerateName(int employeeSex)
+        {
+            string choosedName = "";
 
+            string[] maleNames = new string[7] { "Józsi", "Feri", "Péter", "Laci", "Béla", "János", "Pista" };
+            string[] femaleNames = new string[7] { "Izabella", "Niki", "Viki", "Margit", "Rozália", "Agónia", "Begónia" };
+
+            if (employeeSex == 1)
+            {
+                choosedName = maleNames[r.Next(0, maleNames.Length)];
+                return choosedName;
+            }
+            choosedName = femaleNames[r.Next(0, femaleNames.Length)];
+            return choosedName;
+        }
+        protected string GeneratePost()
+        {
+            string choosedPost = "";
+
+            string[] posts = new string[5] { "junior software developer", "senior software developer", "team lead", "tester", "helpdesk" };
+
+            choosedPost = posts[r.Next(0, 5)];
+
+            return choosedPost;
+        }
+        protected int GenerateWage()
+        {
+            int wage = r.Next(200000, 800000);
+            return wage;
+        }
 
     }
 } 

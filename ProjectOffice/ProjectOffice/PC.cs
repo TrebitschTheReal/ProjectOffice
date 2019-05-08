@@ -8,7 +8,8 @@ namespace ProjectOffice
 {
     class PC
     {
-        private Random r = new Random();
+        protected Random r = new Random();
+
         private string monitorType = "";
         private int monitorResolution = 0;
         private string processorType = "";
@@ -29,7 +30,6 @@ namespace ProjectOffice
             choosedMonitor = monitorTypes[r.Next(0, monitorTypes.Length)];
             return choosedMonitor;
         }
-
         public string MonitorType
         {
             get { return monitorType; }
