@@ -13,35 +13,9 @@ namespace ProjectOffice
         static void Main()
         {
             var office = new Office();
-            Console.WriteLine(office.OfficeBox[0].Name);
-            Console.WriteLine(office.OfficeBox[0].Post);
-            Console.WriteLine(office.OfficeBox[0].MonitorType);
-            Console.WriteLine("\n");
-            Console.WriteLine(office.OfficeBox[1].Name);
-            Console.WriteLine(office.OfficeBox[1].Post);
-            Console.WriteLine(office.OfficeBox[1].MonitorType);
+            var export = new Export();
 
-
-
-
-
-
-
-            //var sw = new StreamWriter(@"E:\maszekolgatunk\employees.txt");
-            //for (int i = 0; i < office.Employees.GetLength(0); i++)
-            //{
-            //    for (int j = 0; j < office.Employees.GetLength(1); j++)
-            //    {
-            //        sw.WriteLine(office.Employees[i, j].Name);
-            //        sw.WriteLine(office.Employees[i, j].Post);
-            //        sw.WriteLine(office.Employees[i, j].Wage + " Ft.");
-            //        sw.WriteLine(office.Employees[i, j].Productivity);
-            //        sw.WriteLine("\n");
-            //    }
-            //}
-            //sw.Close();
-            //Console.WriteLine("Done!");
-            //Console.ReadKey();
+            export.ExportOutToTxt(office);
 
             Console.ReadKey();
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectOffice
 {
-    class Employee : PC
+    class Employee
     {
 
         private string employeeName = "";
@@ -15,14 +15,28 @@ namespace ProjectOffice
         private int wage = 0;
         private double productivity = 0.0;
 
-        public Employee(int employeeSex, string employeeName, string post, int wage)
+        private string monitorType = "";
+        private int monitorResolution = 0;
+        private string processorType = "";
+        private double processorPerformance = 0.0;
+        private string ramType = "";
+        private double ramPerformance = 0.0;
+
+        public string MonitorType
         {
+            get { return monitorType; }
+        }
+
+        public Employee(string monitorType, int employeeSex, string employeeName, string post, int wage)
+        {
+            this.monitorType = monitorType;
             this.employeeSex = employeeSex;
             this.employeeName = employeeName;
             this.post = post;
             this.wage = wage;
             this.productivity = wage / 18000;
         }
+
         public string Name
         {
             get { return employeeName; }
@@ -38,37 +52,6 @@ namespace ProjectOffice
         public double Productivity
         {
             get { return productivity; }
-        }
-
-        protected string GenerateName(int employeeSex)
-        {
-            string choosedName = "";
-
-            string[] maleNames = new string[7] { "Józsi", "Feri", "Péter", "Laci", "Béla", "János", "Pista" };
-            string[] femaleNames = new string[7] { "Izabella", "Niki", "Viki", "Margit", "Rozália", "Agónia", "Begónia" };
-
-            if (employeeSex == 1)
-            {
-                choosedName = maleNames[r.Next(0, maleNames.Length)];
-                return choosedName;
-            }
-            choosedName = femaleNames[r.Next(0, femaleNames.Length)];
-            return choosedName;
-        }
-        protected string GeneratePost()
-        {
-            string choosedPost = "";
-
-            string[] posts = new string[5] { "junior software developer", "senior software developer", "team lead", "tester", "helpdesk" };
-
-            choosedPost = posts[r.Next(0, 5)];
-
-            return choosedPost;
-        }
-        protected int GenerateWage()
-        {
-            int wage = r.Next(200000, 800000);
-            return wage;
         }
 
     }
