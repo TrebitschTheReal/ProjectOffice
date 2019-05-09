@@ -17,7 +17,7 @@ namespace ProjectOffice
             {
                 int employeeSex = r.Next(1, 3);
                 string employeName = GenerateName(employeeSex);
-                string post = GeneratePost();
+                string post = GeneratePosition();
                 int wage = GenerateWage();
                 string monitor = GenerateMonitorType();
                 employees[i] = new Employee(monitor, employeeSex, employeName, post, wage);
@@ -31,26 +31,34 @@ namespace ProjectOffice
 
         protected string GenerateName(int employeeSex)
         {
-            string choosedName = "";
+            string[] maleNames = new string[11] { "József", "Ferenc", "Péter", "László", "Béla", "János", "István", "Sándor", "Aladár", "Dénes", "Géza" };
+            string[] femaleNames = new string[11] { "Izabella", "Nikolett", "Viktória", "Margit", "Rozália", "Agónia", "Begónia", "Henrietta", "Petra", "Franciska", "Bernadett" };
 
-            string[] maleNames = new string[7] { "Józsi", "Feri", "Péter", "Laci", "Béla", "János", "Pista" };
-            string[] femaleNames = new string[7] { "Izabella", "Niki", "Viki", "Margit", "Rozália", "Agónia", "Begónia" };
+            string choosedName = "";
+            char firstName = femaleNames[r.Next(0, femaleNames.Length)].ToCharArray()[0];
+            string lastName = "";
 
             if (employeeSex == 1)
             {
-                choosedName = maleNames[r.Next(0, maleNames.Length)];
+                lastName = maleNames[r.Next(0, maleNames.Length)];
+                choosedName = firstName + ". " + lastName;
                 return choosedName;
             }
-            choosedName = femaleNames[r.Next(0, femaleNames.Length)];
-            return choosedName;
+            else
+            {
+                lastName = femaleNames[r.Next(0, maleNames.Length)];
+                choosedName = firstName + ". " + lastName;
+                return choosedName;
+            }
+
         }
-        protected string GeneratePost()
+        protected string GeneratePosition()
         {
             string choosedPost = "";
 
-            string[] posts = new string[5] { "junior software developer", "senior software developer", "team lead", "tester", "helpdesk" };
+            string[] positions = new string[8] { "Junior software developer", "Senior software developer", "Team lead", "Tester", "Help desk technician", "IT Support Technician", "Network administrator", "HR management" };
 
-            choosedPost = posts[r.Next(0, 5)];
+            choosedPost = positions[r.Next(0, 5)];
 
             return choosedPost;
         }
@@ -62,7 +70,7 @@ namespace ProjectOffice
         private string GenerateMonitorType()
         {
             string choosedMonitor = "";
-            string[] monitorTypes = new string[4] { "Benq", "Asus", "Samsung", "Philips" };
+            string[] monitorTypes = new string[6] { "Benq", "Asus", "Samsung", "Philips", "LG", "Acer" };
             choosedMonitor = monitorTypes[r.Next(0, monitorTypes.Length)];
             return choosedMonitor;
         }

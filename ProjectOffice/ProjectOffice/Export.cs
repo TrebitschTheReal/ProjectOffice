@@ -9,13 +9,16 @@ namespace ProjectOffice
 {
     class Export
     {
-        StreamWriter sw = new StreamWriter(@"E:\maszekolgatunk\employees.txt");
+        private static string accesPath = "E:\\maszekolgatunk\\employees.txt";
+
         public void ExportOutToTxt(Office office)
         {
+            StreamWriter sw = new StreamWriter(accesPath);
+
             for (int i = 0; i < office.Employees.GetLength(0); i++)
             {
                 sw.WriteLine(office.Employees[i].Name);
-                sw.WriteLine(office.Employees[i].Post);
+                sw.WriteLine(office.Employees[i].Position);
                 sw.WriteLine(office.Employees[i].Wage + " Ft.");
                 sw.WriteLine(office.Employees[i].Productivity);
                 sw.WriteLine(office.Employees[i].MonitorType);
@@ -23,7 +26,7 @@ namespace ProjectOffice
                 sw.WriteLine("\n");
             }
             sw.Close();
-            Console.WriteLine("Done!");
+            Console.WriteLine("Exporting done to {0}", accesPath);
         }
     }
 } 

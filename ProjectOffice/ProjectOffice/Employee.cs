@@ -8,10 +8,10 @@ namespace ProjectOffice
 {
     class Employee
     {
-
+        private static Random r = new Random();
         private string employeeName = "";
         private int employeeSex = 0;
-        private string post = "";
+        private string position = "";
         private int wage = 0;
         private double productivity = 0.0;
 
@@ -32,18 +32,18 @@ namespace ProjectOffice
             this.monitorType = monitorType;
             this.employeeSex = employeeSex;
             this.employeeName = employeeName;
-            this.post = post;
+            this.position = post;
             this.wage = wage;
-            this.productivity = wage / 18000;
+            this.productivity = 100 - (r.Next(0,11) + (wage / 20000)/2);
         }
 
         public string Name
         {
             get { return employeeName; }
         }
-        public string Post
+        public string Position
         {
-            get { return post; }
+            get { return position; }
         }
         public int Wage
         {
