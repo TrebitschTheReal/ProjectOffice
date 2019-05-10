@@ -66,9 +66,10 @@ namespace ProjectOffice
             int wage = (int)wageInDouble;
             return wage;
         }
-        public void GeneratePosition()
+        public string GeneratePosition()
         {
             position = positions[r.Next(0, positions.Length)];
+            return position;
         }
 
 

@@ -16,11 +16,10 @@ namespace ProjectOffice
         {
             for (int i = 0; i < employees.Length; i++)
             {
-                Positions poz = new Positions();
-
                 int employeeSex = r.Next(1, 3);
                 string employeName = GenerateName(employeeSex);
-                string position = poz.Position;
+                Positions poz = new Positions();
+                string position = poz.GeneratePosition();
                 int wage = poz.GenerateWage();
                 string monitor = GenerateMonitorType();
                 employees[i] = new Employee(monitor, employeeSex, employeName, position, wage);
