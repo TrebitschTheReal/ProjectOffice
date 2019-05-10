@@ -46,6 +46,7 @@
     <Compile Include="Employee.cs" />
     <Compile Include="Export.cs" />
     <Compile Include="Office.cs" />
+    <Compile Include="Positions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -13,6 +13,7 @@ namespace ProjectOffice
         private int employeeSex = 0;
         private string position = "";
         private int wage = 0;
+        private string wageInString = "";
         private double productivity = 0.0;
 
         private string monitorType = "";
@@ -34,6 +35,7 @@ namespace ProjectOffice
             this.employeeName = employeeName;
             this.position = post;
             this.wage = wage;
+            WageToString();
             this.productivity = 100 - (r.Next(0,11) + (wage / 20000)/2);
         }
 
@@ -49,9 +51,27 @@ namespace ProjectOffice
         {
             get { return wage; }
         }
+        public string WageInString
+        {
+            get { return wageInString; }
+        }
         public double Productivity
         {
             get { return productivity; }
+        }
+
+        private void WageToString()
+        {
+            wageInString = wage.ToString();
+
+            if (wageInString.Length == 6)
+            {
+               wageInString = wageInString.Insert(3, ".");
+            }
+            else if(wageInString.Length > 6)
+            {
+               wageInString = wageInString.Insert(4, ".");
+            }
         }
 
     }

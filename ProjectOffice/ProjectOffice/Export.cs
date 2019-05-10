@@ -19,7 +19,7 @@ namespace ProjectOffice
             {
                 sw.WriteLine(office.Employees[i].Name);
                 sw.WriteLine(office.Employees[i].Position);
-                sw.WriteLine(office.Employees[i].Wage + " Ft.");
+                sw.WriteLine(office.Employees[i].WageInString + " Ft.");
                 sw.WriteLine(office.Employees[i].Productivity);
                 sw.WriteLine(office.Employees[i].MonitorType);
                 sw.WriteLine("==============================");

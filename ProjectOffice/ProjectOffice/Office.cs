@@ -19,7 +19,8 @@ namespace ProjectOffice
                 int employeeSex = r.Next(1, 3);
                 string employeName = GenerateName(employeeSex);
                 string position = GeneratePosition();
-                int wage = GenerateWage(position);
+                Positions poz = new Positions(position);
+                int wage = poz.GenerateWage();
                 string monitor = GenerateMonitorType();
                 employees[i] = new Employee(monitor, employeeSex, employeName, position, wage);
             }
@@ -61,29 +62,6 @@ namespace ProjectOffice
 
 
             return choosedPost;
-        }
-        protected int GenerateWage(string position)
-        {
-            double baseWage = 130000;
-            double moneyMultiplier = 1;
-            double moneyMultiplierRate = 0;
-            int wage = 0;
-
-            foreach (string element in positions)
-            {
-                moneyMultiplierRate += 0.4;
-
-                if(element == position)
-                {
-                    moneyMultiplier += moneyMultiplierRate;
-                }
-            }
-
-            baseWage *= moneyMultiplier;
-
-            wage = (int)baseWage;
-
-            return wage;
         }
         private string GenerateMonitorType()
         {
