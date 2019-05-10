@@ -17,6 +17,8 @@ namespace ProjectOffice
 
             export.ExportOutToTxt(office);
 
+
+            Console.Write("Press any key to exit . . . ");
             Console.ReadKey();
         }
     }

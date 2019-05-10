@@ -23,7 +23,6 @@ namespace ProjectOffice
                 sw.WriteLine(office.Employees[i].Productivity);
                 sw.WriteLine(office.Employees[i].MonitorType);
                 sw.WriteLine("==============================");
-                sw.WriteLine("\n");
             }
             sw.Close();
             Console.WriteLine("Exporting done to {0}", accesPath);

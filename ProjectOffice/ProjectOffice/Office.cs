@@ -10,6 +10,7 @@ namespace ProjectOffice
     {
         private Employee[] employees = new Employee[80];
         private Random r = new Random();
+        private string[] positions = new string[8] { "Tester", "Help desk technician", "IT support technician", "HR management", "Network administrator", "Junior software developer", "Senior software developer", "Team lead" };
 
         public Office()
         {
@@ -17,10 +18,10 @@ namespace ProjectOffice
             {
                 int employeeSex = r.Next(1, 3);
                 string employeName = GenerateName(employeeSex);
-                string post = GeneratePosition();
-                int wage = GenerateWage();
+                string position = GeneratePosition();
+                int wage = GenerateWage(position);
                 string monitor = GenerateMonitorType();
-                employees[i] = new Employee(monitor, employeeSex, employeName, post, wage);
+                employees[i] = new Employee(monitor, employeeSex, employeName, position, wage);
             }
         }
 
@@ -55,16 +56,33 @@ namespace ProjectOffice
         protected string GeneratePosition()
         {
             string choosedPost = "";
+            choosedPost = positions[r.Next(0, positions.Length)];
 
-            string[] positions = new string[8] { "Junior software developer", "Senior software developer", "Team lead", "Tester", "Help desk technician", "IT Support Technician", "Network administrator", "HR management" };
 
-            choosedPost = positions[r.Next(0, 5)];
 
             return choosedPost;
         }
-        protected int GenerateWage()
+        protected int GenerateWage(string position)
         {
-            int wage = r.Next(200000, 800000);
+            double baseWage = 160000;
+            double moneyMultiplier = 1;
+            double moneyMultiplierRate = 0;
+            int wage = 0;
+
+            foreach (string element in positions)
+            {
+                moneyMultiplierRate += 0.4;
+
+                if(element == position)
+                {
+                    moneyMultiplier += moneyMultiplierRate;
+                }
+            }
+
+            baseWage *= moneyMultiplier;
+
+            wage = (int)baseWage;
+
             return wage;
         }
         private string GenerateMonitorType()
