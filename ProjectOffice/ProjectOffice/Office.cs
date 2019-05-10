@@ -10,16 +10,17 @@ namespace ProjectOffice
     {
         private Employee[] employees = new Employee[80];
         private Random r = new Random();
-        private string[] positions = new string[8] { "Tester", "Help desk technician", "IT support technician", "HR management", "Network administrator", "Junior software developer", "Senior software developer", "Team lead" };
+
 
         public Office()
         {
             for (int i = 0; i < employees.Length; i++)
             {
+                Positions poz = new Positions();
+
                 int employeeSex = r.Next(1, 3);
                 string employeName = GenerateName(employeeSex);
-                string position = GeneratePosition();
-                Positions poz = new Positions(position);
+                string position = poz.Position;
                 int wage = poz.GenerateWage();
                 string monitor = GenerateMonitorType();
                 employees[i] = new Employee(monitor, employeeSex, employeName, position, wage);
@@ -53,15 +54,6 @@ namespace ProjectOffice
                 return choosedName;
             }
 
-        }
-        protected string GeneratePosition()
-        {
-            string choosedPost = "";
-            choosedPost = positions[r.Next(0, positions.Length)];
-
-
-
-            return choosedPost;
         }
         private string GenerateMonitorType()
         {

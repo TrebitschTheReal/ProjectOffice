@@ -8,16 +8,21 @@ namespace ProjectOffice
 {
     class Positions
     {
+        Random r = new Random();
+        private string[] positions = new string[8] { "Tester", "Help desk technician", "IT support technician", "HR management", "Network administrator", "Junior software developer", "Senior software developer", "Team lead" };
         private string position;
         private int baseWage = 170000;
         private double wageMultiplier = 0.0;
 
-        public Positions(string position)
+        public Positions()
         {
-            this.position = position;
+            GeneratePosition();
             GenerateWageMultiplerByPosition();
         }
-
+        public string Position
+        {
+            get { return position; }
+        }
         private void GenerateWageMultiplerByPosition()
         {
             switch (position)
@@ -61,6 +66,11 @@ namespace ProjectOffice
             int wage = (int)wageInDouble;
             return wage;
         }
+        public void GeneratePosition()
+        {
+            position = positions[r.Next(0, positions.Length)];
+        }
+
 
     }
 }
