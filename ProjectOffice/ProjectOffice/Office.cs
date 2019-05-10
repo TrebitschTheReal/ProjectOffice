@@ -64,7 +64,7 @@ namespace ProjectOffice
         }
         protected int GenerateWage(string position)
         {
-            double baseWage = 160000;
+            double baseWage = 130000;
             double moneyMultiplier = 1;
             double moneyMultiplierRate = 0;
             int wage = 0;
