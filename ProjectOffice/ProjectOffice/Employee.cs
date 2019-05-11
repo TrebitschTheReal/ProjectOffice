@@ -8,7 +8,6 @@ namespace ProjectOffice
 {
     class Employee
     {
-        private static Random r = new Random();
         private string employeeName = "";
         private int employeeSex = 0;
         private string position = "";
@@ -36,7 +35,7 @@ namespace ProjectOffice
             this.position = post;
             this.wage = wage;
             WageToString();
-            this.productivity = 100 - (r.Next(0,11) + (wage / 20000)/2);
+            this.productivity = 100 - (StaticRandom.Instance.Next(0,11) + (wage / 20000)/2);
         }
 
         public string Name

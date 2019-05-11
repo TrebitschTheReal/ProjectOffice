@@ -9,18 +9,16 @@ namespace ProjectOffice
     class Office
     {
         private Employee[] employees = new Employee[80];
-        private Random r = new Random();
-
 
         public Office()
         {
             for (int i = 0; i < employees.Length; i++)
             {
-                int employeeSex = r.Next(1, 3);
+                int employeeSex = StaticRandom.Instance.Next(1, 3);
                 string employeName = GenerateName(employeeSex);
-                Positions poz = new Positions();
-                string position = poz.GeneratePosition();
-                int wage = poz.GenerateWage();
+                Positions pos = new Positions();
+                string position = pos.GeneratePosition();
+                int wage = pos.GenerateWage();
                 string monitor = GenerateMonitorType();
                 employees[i] = new Employee(monitor, employeeSex, employeName, position, wage);
             }
@@ -37,18 +35,18 @@ namespace ProjectOffice
             string[] femaleNames = new string[11] { "Izabella", "Nikolett", "Viktória", "Margit", "Rozália", "Agónia", "Begónia", "Henrietta", "Petra", "Franciska", "Bernadett" };
 
             string choosedName = "";
-            char firstName = femaleNames[r.Next(0, femaleNames.Length)].ToCharArray()[0];
+            char firstName = femaleNames[StaticRandom.Instance.Next(0, femaleNames.Length)].ToCharArray()[0];
             string lastName = "";
 
             if (employeeSex == 1)
             {
-                lastName = maleNames[r.Next(0, maleNames.Length)];
+                lastName = maleNames[StaticRandom.Instance.Next(0, maleNames.Length)];
                 choosedName = firstName + ". " + lastName;
                 return choosedName;
             }
             else
             {
-                lastName = femaleNames[r.Next(0, maleNames.Length)];
+                lastName = femaleNames[StaticRandom.Instance.Next(0, maleNames.Length)];
                 choosedName = firstName + ". " + lastName;
                 return choosedName;
             }
@@ -58,7 +56,7 @@ namespace ProjectOffice
         {
             string choosedMonitor = "";
             string[] monitorTypes = new string[6] { "Benq", "Asus", "Samsung", "Philips", "LG", "Acer" };
-            choosedMonitor = monitorTypes[r.Next(0, monitorTypes.Length)];
+            choosedMonitor = monitorTypes[StaticRandom.Instance.Next(0, monitorTypes.Length)];
             return choosedMonitor;
         }
 

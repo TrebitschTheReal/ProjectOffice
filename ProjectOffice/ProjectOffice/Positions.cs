@@ -8,7 +8,6 @@ namespace ProjectOffice
 {
     class Positions
     {
-        Random r = new Random();
         private string[] positions = new string[8] { "Tester", "Help desk technician", "IT support technician", "HR management", "Network administrator", "Junior software developer", "Senior software developer", "Team lead" };
         private string position;
         private int baseWage = 170000;
@@ -68,7 +67,7 @@ namespace ProjectOffice
         }
         public string GeneratePosition()
         {
-            position = positions[r.Next(0, positions.Length)];
+            position = positions[StaticRandom.Instance.Next(0, positions.Length)];
             return position;
         }
 
