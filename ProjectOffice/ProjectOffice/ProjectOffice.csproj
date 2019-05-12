@@ -45,7 +45,9 @@
   <ItemGroup>
     <Compile Include="Employee.cs" />
     <Compile Include="Export.cs" />
+    <Compile Include="Names.cs" />
     <Compile Include="Office.cs" />
+    <Compile Include="PC.cs" />
     <Compile Include="Positions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

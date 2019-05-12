@@ -22,22 +22,20 @@ namespace ProjectOffice
         private string ramType = "";
         private double ramPerformance = 0.0;
 
-        public string MonitorType
-        {
-            get { return monitorType; }
-        }
-
         public Employee(string monitorType, int employeeSex, string employeeName, string post, int wage)
         {
-            this.monitorType = monitorType;
             this.employeeSex = employeeSex;
             this.employeeName = employeeName;
             this.position = post;
             this.wage = wage;
-            WageToString();
+            this.wageInString = WageToString(wage);
+            this.monitorType = monitorType;
             this.productivity = 100 - (StaticRandom.Instance.Next(0,11) + (wage / 20000)/2);
         }
-
+        public string MonitorType
+        {
+            get { return monitorType; }
+        }
         public string Name
         {
             get { return employeeName; }
@@ -59,9 +57,9 @@ namespace ProjectOffice
             get { return productivity; }
         }
 
-        private void WageToString()
+        private string WageToString(int wage)
         {
-            wageInString = wage.ToString();
+            string wageInString = wage.ToString();
 
             if (wageInString.Length == 6)
             {
@@ -71,6 +69,8 @@ namespace ProjectOffice
             {
                wageInString = wageInString.Insert(4, ".");
             }
+
+            return wageInString;
         }
 
     }

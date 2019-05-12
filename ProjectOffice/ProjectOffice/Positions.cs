@@ -14,9 +14,16 @@ namespace ProjectOffice
         private double wageMultiplier = 0.0;
         private int wage = 0;
 
-        public Positions()
+        public Positions(bool isEnoughOfLeaders)
         {
-            GeneratePosition();
+            if(isEnoughOfLeaders == true)
+            {
+                GeneratePositionWithoutLeader();
+            }
+            else
+            {
+                GeneratePosition();
+            }
             GenerateWageMultiplerByPosition();
             GenerateWage();
 
@@ -71,15 +78,13 @@ namespace ProjectOffice
             double wageInDouble = baseWage * wageMultiplier;
             int wage = (int)wageInDouble;
         }
-        public string GeneratePosition()
+        public void GeneratePosition()
         {
             position = positions[StaticRandom.Instance.Next(0, positions.Length)];
-            return position;
         }
-        public string GeneratePositionWithoutLeader()
+        public void GeneratePositionWithoutLeader()
         {
             position = positions[StaticRandom.Instance.Next(0, positions.Length-1)];
-            return position;
         }
 
 
