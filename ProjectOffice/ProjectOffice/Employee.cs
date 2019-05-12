@@ -32,7 +32,7 @@ namespace ProjectOffice
             this.monitorType = monitorType;
             this.processorType = processorType;
             this.processorPerformance = processorPerformance;
-            this.productivity = 100 - (StaticRandom.Instance.Next(0,11) + (wage / 20000)/2);
+            this.productivity = CalculateProductivity();
         }
         public string MonitorType
         {
@@ -81,6 +81,13 @@ namespace ProjectOffice
             }
 
             return wageInString;
+        }
+        private void CalculateProductivity()
+        {
+            int productivity = StaticRandom.Instance.Next(0, 51);
+            asd
+
+
         }
 
     }
