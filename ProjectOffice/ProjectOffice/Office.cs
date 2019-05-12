@@ -78,12 +78,12 @@ namespace ProjectOffice
                 int employeeSex = StaticRandom.Instance.Next(1, 3);
                 string employeName = GenerateName(employeeSex);
                 Positions pos = new Positions();
-                string position = pos.GeneratePosition();
+                string position = pos.Position;
                 if (IsEnoughOfLeaders() == true)
                 {
                     position = pos.GeneratePositionWithoutLeader();
                 }
-                int wage = pos.GenerateWage();
+                int wage = pos.Wage;
                 string monitor = GenerateMonitorType();
                 employees[i] = new Employee(monitor, employeeSex, employeName, position, wage);
             }

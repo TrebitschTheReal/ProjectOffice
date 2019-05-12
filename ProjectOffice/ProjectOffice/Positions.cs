@@ -12,15 +12,22 @@ namespace ProjectOffice
         private string position;
         private int baseWage = 170000;
         private double wageMultiplier = 0.0;
+        private int wage = 0;
 
         public Positions()
         {
             GeneratePosition();
             GenerateWageMultiplerByPosition();
+            GenerateWage();
+
         }
         public string Position
         {
             get { return position; }
+        }
+        public int Wage
+        {
+            get { return wage; }
         }
         private void GenerateWageMultiplerByPosition()
         {
@@ -59,11 +66,10 @@ namespace ProjectOffice
                     break;
             }
         }
-        public int GenerateWage()
+        public void GenerateWage()
         {
             double wageInDouble = baseWage * wageMultiplier;
             int wage = (int)wageInDouble;
-            return wage;
         }
         public string GeneratePosition()
         {
