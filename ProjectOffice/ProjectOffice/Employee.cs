@@ -18,11 +18,11 @@ namespace ProjectOffice
         private string monitorType = "";
         private int monitorResolution = 0;
         private string processorType = "";
-        private double processorPerformance = 0.0;
+        private int processorPerformance = 0;
         private string ramType = "";
         private double ramPerformance = 0.0;
 
-        public Employee(string monitorType, int employeeSex, string employeeName, string post, int wage)
+        public Employee(int employeeSex, string employeeName, string post, int wage, string monitorType, string processorType, int processorPerformance)
         {
             this.employeeSex = employeeSex;
             this.employeeName = employeeName;
@@ -30,6 +30,8 @@ namespace ProjectOffice
             this.wage = wage;
             this.wageInString = WageToString(wage);
             this.monitorType = monitorType;
+            this.processorType = processorType;
+            this.processorPerformance = processorPerformance;
             this.productivity = 100 - (StaticRandom.Instance.Next(0,11) + (wage / 20000)/2);
         }
         public string MonitorType
@@ -55,6 +57,14 @@ namespace ProjectOffice
         public double Productivity
         {
             get { return productivity; }
+        }
+        public string ProcessorType
+        {
+            get { return processorType; }
+        }
+        public int ProcessorPerformance
+        {
+            get { return processorPerformance; }
         }
 
         private string WageToString(int wage)

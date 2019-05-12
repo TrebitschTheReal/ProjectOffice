@@ -19,13 +19,15 @@ namespace ProjectOffice
             if(isEnoughOfLeaders == true)
             {
                 GeneratePositionWithoutLeader();
+                GenerateWageMultiplerByPosition();
+                GenerateWage();
             }
             else
             {
                 GeneratePosition();
+                GenerateWageMultiplerByPosition();
+                GenerateWage();
             }
-            GenerateWageMultiplerByPosition();
-            GenerateWage();
 
         }
         public string Position
@@ -76,7 +78,7 @@ namespace ProjectOffice
         public void GenerateWage()
         {
             double wageInDouble = baseWage * wageMultiplier;
-            int wage = (int)wageInDouble;
+            wage = (int)wageInDouble;
         }
         public void GeneratePosition()
         {

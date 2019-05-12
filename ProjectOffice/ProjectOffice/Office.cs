@@ -48,7 +48,7 @@ namespace ProjectOffice
                 Names names = new Names();
                 Positions position = new Positions(IsEnoughOfLeaders());
                 PC pc = new PC();
-                employees[i] = new Employee(pc.ChoosedMonitorType, names.EmployeeSex, names.ChoosedName, position.Position, position.Wage);
+                employees[i] = new Employee(names.EmployeeSex, names.ChoosedName, position.Position, position.Wage, pc.MonitorType, pc.ProcessorType, pc.ProcessorPerformance);
             }
         }
 

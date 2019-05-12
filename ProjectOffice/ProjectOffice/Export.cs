@@ -22,6 +22,8 @@ namespace ProjectOffice
                 sw.WriteLine(office.Employees[i].WageInString + " Ft.");
                 sw.WriteLine(office.Employees[i].Productivity);
                 sw.WriteLine(office.Employees[i].MonitorType);
+                sw.WriteLine(office.Employees[i].ProcessorType);
+                sw.WriteLine(office.Employees[i].ProcessorPerformance + "Mhz.");
                 sw.WriteLine("==============================");
             }
             sw.Close();
