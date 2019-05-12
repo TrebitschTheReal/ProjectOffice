@@ -70,6 +70,11 @@ namespace ProjectOffice
             position = positions[StaticRandom.Instance.Next(0, positions.Length)];
             return position;
         }
+        public string GeneratePositionWithoutLeader()
+        {
+            position = positions[StaticRandom.Instance.Next(0, positions.Length-1)];
+            return position;
+        }
 
 
     }

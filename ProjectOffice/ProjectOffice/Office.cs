@@ -12,16 +12,7 @@ namespace ProjectOffice
 
         public Office()
         {
-            for (int i = 0; i < employees.Length; i++)
-            {
-                int employeeSex = StaticRandom.Instance.Next(1, 3);
-                string employeName = GenerateName(employeeSex);
-                Positions pos = new Positions();
-                string position = pos.GeneratePosition();
-                int wage = pos.GenerateWage();
-                string monitor = GenerateMonitorType();
-                employees[i] = new Employee(monitor, employeeSex, employeName, position, wage);
-            }
+            GenerateEmployees();
         }
 
         public Employee[] Employees
@@ -58,6 +49,44 @@ namespace ProjectOffice
             string[] monitorTypes = new string[6] { "Benq", "Asus", "Samsung", "Philips", "LG", "Acer" };
             choosedMonitor = monitorTypes[StaticRandom.Instance.Next(0, monitorTypes.Length)];
             return choosedMonitor;
+        }
+        private bool IsEnoughOfLeaders()
+        {
+            byte leaderCnt = 0;
+
+            for (int i = 0; i < employees.Length; i++)
+            {
+                if (employees[i] == null)
+                {
+                    return false;
+                }
+                else if (employees[i].Position == "Team lead")
+                {
+                    leaderCnt++;
+                    if (leaderCnt == 3)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        private void GenerateEmployees()
+        {
+            for (int i = 0; i < employees.Length; i++)
+            {
+                int employeeSex = StaticRandom.Instance.Next(1, 3);
+                string employeName = GenerateName(employeeSex);
+                Positions pos = new Positions();
+                string position = pos.GeneratePosition();
+                if (IsEnoughOfLeaders() == true)
+                {
+                    position = pos.GeneratePositionWithoutLeader();
+                }
+                int wage = pos.GenerateWage();
+                string monitor = GenerateMonitorType();
+                employees[i] = new Employee(monitor, employeeSex, employeName, position, wage);
+            }
         }
 
     }
